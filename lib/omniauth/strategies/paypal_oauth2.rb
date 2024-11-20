@@ -7,15 +7,15 @@ module OmniAuth
     class PaypalOauth2 < OmniAuth::Strategies::OAuth2
       DEFAULT_SCOPE = 'openid email profile'
       DEFAULT_RESPONSE_TYPE = 'code'
-      SANDBOX_SITE = 'https://api.sandbox.paypal.com'
+      SANDBOX_SITE = 'https://api-m.sandbox.paypal.com'
       SANDBOX_AUTHORIZE_URL = 'https://www.sandbox.paypal.com/signin/authorize'
 
-      option :name, 'paypal_oauth2'
+      option :name, 'paypal'
 
       option :client_options,
-             site: 'https://api.paypal.com',
+             site: 'https://api-m.paypal.com',
              authorize_url: 'https://www.paypal.com/signin/authorize',
-             token_url: '/v1/identity/openidconnect/tokenservice',
+             token_url: '/v1/oauth2/token',
              setup: true
 
       option :authorize_options, [:scope, :response_type]
